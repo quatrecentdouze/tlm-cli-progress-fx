@@ -437,8 +437,7 @@ async function processTasks() {
   ];
   
   for (const task of tasks) {
-    const bar = new ProgressBar({
-      effect: task.preset,
+    const bar = new ProgressBar(task.preset, {
       label: task.name,
       showLabel: true
     });
@@ -470,12 +469,9 @@ async function buildProject() {
   ];
   
   for (const stage of stages) {
-    const bar = new ProgressBar({
-      effect: stage.preset,
-      width: 50,
+    const bar = new ProgressBar(stage.preset, {
       label: `🔨 ${stage.name}`,
-      showLabel: true,
-      showPercent: true
+      showLabel: true
     });
     
     bar.start();

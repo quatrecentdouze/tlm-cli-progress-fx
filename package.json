@@ -50,5 +50,8 @@
     "lib/",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "dependencies": {
+    "tlm-cli-progress-fx": "^1.0.1"
+  }
 }
