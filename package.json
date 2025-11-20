@@ -32,12 +32,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/tlm-cli-progress-fx"
+    "url": "https://github.com/quatrecentdouze/tlm-cli-progress-fx.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/tlm-cli-progress-fx/issues"
+    "url": "https://github.com/quatrecentdouze/tlm-cli-progress-fx/issues"
   },
-  "homepage": "https://github.com/yourusername/tlm-cli-progress-fx#readme",
+  "homepage": "https://github.com/quatrecentdouze/tlm-cli-progress-fx#readme",
   "engines": {
     "node": ">=12.0.0"
   },

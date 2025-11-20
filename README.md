@@ -1,33 +1,50 @@
-# TLM CLI Progress FX
+<div align="center">
 
-🎨 Stylized animated progress bars for Node.js CLI with multiple visual effects.
+# 🎨 TLM CLI Progress FX
 
-Bring your terminal UX to life with glitch, gradient, matrix, and retro 8-bit progress bars. Perfect for file downloads, build processes, data processing, and any long-running CLI operation.
+**Stylized animated progress bars for Node.js CLI**
 
-## Features
+Bring your terminal UX to life with glitch, gradient, matrix, and retro 8-bit progress bars.
 
-✨ **4 Stunning Effects**
+Perfect for file downloads, build processes, data processing, and any long-running CLI operation.
+
+[Installation](#installation) • [Quick Start](#quick-start) • [API Reference](#api-reference) • [Examples](#examples)
+
+</div>
+
+---
+
+## ✨ Features
+
+### 4 Stunning Effects
+
 - **Glitch** - Corrupted characters with color shifts
 - **Gradient** - Smooth 16-color gradients
 - **Matrix** - Animated kanji characters (Matrix style)
 - **Retro 8-bit** - Pixelated retro aesthetic
 
-🎯 **7 Ready-to-Use Presets**
-- `default` - Clean gradient with percentage
-- `glitch` - Chaotic system style
-- `matrix` - Green flowing characters
-- `retro` - Colorful pixel art
-- `neon` - Vibrant cyber colors
-- `cyberpunk` - Intense glitch effect
-- `minimal` - Lightweight gradient
+### 7 Ready-to-Use Presets
 
-🎛️ **Fully Customizable**
+| Preset | Effect | Style |
+|--------|--------|-------|
+| `default` | gradient | Clean with percentage |
+| `glitch` | glitch | Chaotic system style |
+| `matrix` | matrix | Green flowing characters |
+| `retro` | retro8bit | Colorful pixel art |
+| `neon` | gradient | Vibrant cyber colors |
+| `cyberpunk` | glitch | Intense neon glitch |
+| `minimal` | gradient | Lightweight & clean |
+
+### 🎛️ Fully Customizable
+
 - Effect selection
-- Width, colors, intensity
+- Width, colors, intensity  
 - Labels and percentage display
 - Custom characters and animations
 
-## Installation
+---
+
+## 📦 Installation
 
 ### Via npm
 
@@ -38,13 +55,15 @@ npm install tlm-cli-progress-fx
 ### From Source
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/quatrecentdouze/tlm-cli-progress-fx.git
 cd tlm-cli-progress-fx
 npm install
 npm run demo
 ```
 
-## Quick Start
+---
+
+## 🚀 Quick Start
 
 ### Basic Usage
 
@@ -80,6 +99,7 @@ const { ProgressBar, presets } = require('tlm-cli-progress-fx');
 const matrix = new ProgressBar('matrix');
 const glitch = new ProgressBar('glitch');
 const retro = new ProgressBar('retro');
+const neon = new ProgressBar('neon');
 ```
 
 ### Custom Configuration
@@ -102,7 +122,9 @@ bar.update(50, 100);
 bar.finish('Done!');
 ```
 
-## Presets
+---
+
+## 📋 Presets Reference
 
 All presets are pre-configured with optimal settings for their effect:
 
@@ -110,59 +132,61 @@ All presets are pre-configured with optimal settings for their effect:
 ```
 Progress ████████░░░░░░░░░░░░░░░░░░░░░░  30%
 ```
-- Effect: gradient
-- Width: 30
-- Shows label and percentage
+- **Effect:** gradient
+- **Width:** 30
+- **Features:** Label + Percentage
 
 ### glitch
 ```
 SYSTEM ▓█░▒▓█░░░░░░░░░░░░░░░░░░░░░░░░░░░░  42%
 ```
-- Effect: glitch
-- Width: 40
-- Chaotic colored corruption
+- **Effect:** glitch
+- **Width:** 40
+- **Features:** Chaotic colored corruption
 
 ### matrix
 ```
 ｦｧｨｩｪｫｬｭｮｯ01█ｦｧｨｩｪｫｬｭｮｯ01█ｦｧｨｩｪｫ  78%
 ```
-- Effect: matrix
-- Width: 50
-- Flowing kanji animation
+- **Effect:** matrix
+- **Width:** 50
+- **Features:** Flowing kanji animation
 
 ### retro
 ```
 8-BIT ▁▂▃▄▅▆▇███▌▌▌▌▌  65%
 ```
-- Effect: retro8bit
-- Width: 35
-- Colorful pixel blocks
+- **Effect:** retro8bit
+- **Width:** 35
+- **Features:** Colorful pixel blocks
 
 ### neon
 ```
 NEON ▓▓▓▓▓▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░  50%
 ```
-- Effect: gradient (neon colors)
-- Width: 40
-- Vibrant cyan to magenta
+- **Effect:** gradient (neon colors)
+- **Width:** 40
+- **Features:** Vibrant cyan to magenta
 
 ### cyberpunk
 ```
 ■ CYBER ▓█░▒▓█░▓█░░░░░░░░░░░░░░░░░░░░░░░  55%
 ```
-- Effect: glitch
-- Width: 45
-- Intense neon colors
+- **Effect:** glitch
+- **Width:** 45
+- **Features:** Intense neon colors
 
 ### minimal
 ```
 ████████░░░░░░░░░░░░░░░░  80%
 ```
-- Effect: gradient
-- Width: 25
-- No label, clean output
+- **Effect:** gradient
+- **Width:** 25
+- **Features:** No label, clean output
 
-## API Reference
+---
+
+## 📚 API Reference
 
 ### `new ProgressBar(options)`
 
@@ -172,6 +196,7 @@ Creates a new progress bar instance.
 - `options` (string | object) - Preset name or configuration object
 
 **Options Object:**
+
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
 | `effect` | string | `'gradient'` | Effect type: `glitch`, `gradient`, `matrix`, `retro8bit` |
@@ -181,24 +206,28 @@ Creates a new progress bar instance.
 | `showPercent` | boolean | `true` | Display percentage |
 | `effectOptions` | object | `{}` | Effect-specific options |
 
-**effectOptions by Effect:**
+---
 
-**glitch:**
+### Effect Options
+
+#### glitch
 - `intensity` (0-1) - Amount of corruption, default: `0.6`
 - `colors` (array) - ANSI color codes, default: `['\x1b[36m', '\x1b[35m', '\x1b[33m']`
 
-**gradient:**
+#### gradient
 - `startColor` - ANSI color, default: `'\x1b[38;5;21m'` (blue)
 - `endColor` - ANSI color, default: `'\x1b[38;5;226m'` (yellow)
 - `emptyColor` - ANSI color, default: `'\x1b[38;5;8m'` (gray)
 
-**matrix:**
+#### matrix
 - `matrixChars` (array) - Characters to animate, default: katakana + numbers
 - `flowSpeed` (0-1) - Animation speed, default: `0.015`
 
-**retro8bit:**
+#### retro8bit
 - `pixelSize` (number) - Pixels per character, default: `2`
 - `colors` (array) - ANSI colors for palette rotation
+
+---
 
 ### Methods
 
@@ -237,7 +266,9 @@ bar.finish('Operation complete!');
 // Output: ✓ Operation complete! (4s)
 ```
 
-## Examples
+---
+
+## 💡 Examples
 
 ### File Download Simulation
 
@@ -303,9 +334,47 @@ async function processTasks() {
 processTasks();
 ```
 
-## Building from Source
+### Build Process
+
+```javascript
+const { ProgressBar } = require('tlm-cli-progress-fx');
+
+async function buildProject() {
+  const stages = [
+    { name: 'Compiling', preset: 'matrix' },
+    { name: 'Bundling', preset: 'glitch' },
+    { name: 'Optimizing', preset: 'neon' }
+  ];
+  
+  for (const stage of stages) {
+    const bar = new ProgressBar({
+      effect: stage.preset,
+      width: 50,
+      label: `🔨 ${stage.name}`,
+      showLabel: true,
+      showPercent: true
+    });
+    
+    bar.start();
+    
+    for (let i = 0; i <= 100; i += Math.random() * 15) {
+      bar.update(Math.min(i, 100), 100);
+      await new Promise(r => setTimeout(r, 100));
+    }
+    
+    bar.finish(`${stage.name} complete`);
+  }
+}
+
+buildProject();
+```
+
+---
+
+## 🏗️ Building from Source
 
 ### Requirements
+
 - Node.js >= 12.0.0
 - npm
 
@@ -313,7 +382,7 @@ processTasks();
 
 ```bash
 # Clone repository
-git clone <repository-url>
+git clone https://github.com/quatrecentdouze/tlm-cli-progress-fx.git
 cd tlm-cli-progress-fx
 
 # Install dependencies
@@ -322,7 +391,7 @@ npm install
 # Run all demos
 npm run demo
 
-# Run specific demo
+# Run specific demos
 npm run demo:basic
 npm run demo:custom
 npm run demo:realistic
@@ -332,31 +401,34 @@ npm run demo:realistic
 
 ```
 tlm-cli-progress-fx/
-├── index.js                 # Main entry point
+├── index.js                    # Main entry point
 ├── lib/
-│   ├── index.js            # Core exports
-│   ├── progressBar.js      # Main ProgressBar class
-│   ├── presets.js          # Preset configurations
+│   ├── index.js               # Core exports
+│   ├── progressBar.js         # Main ProgressBar class
+│   ├── presets.js             # Preset configurations
 │   └── effects/
-│       ├── glitch.js       # Glitch effect
-│       ├── gradient.js     # Gradient effect
-│       ├── matrix.js       # Matrix effect
-│       └── retro8bit.js    # Retro 8-bit effect
+│       ├── glitch.js          # Glitch effect
+│       ├── gradient.js        # Gradient effect
+│       ├── matrix.js          # Matrix effect
+│       └── retro8bit.js       # Retro 8-bit effect
 ├── examples/
-│   ├── basic.js            # Basic usage
-│   ├── all-effects.js      # All effects demo
-│   ├── custom.js           # Custom configuration
-│   └── realistic.js        # Realistic use cases
-├── package.json
-└── README.md
+│   ├── basic.js               # Basic usage
+│   ├── all-effects.js         # All effects demo
+│   ├── custom.js              # Custom configuration
+│   └── realistic.js           # Realistic use cases
+├── package.json               # NPM metadata
+└── README.md                  # Documentation
 ```
 
-### Adding Custom Effects
+---
 
-1. Create a new effect file in `lib/effects/`:
+## 🎨 Adding Custom Effects
+
+### Step 1: Create Effect File
+
+Create `lib/effects/custom.js`:
 
 ```javascript
-// lib/effects/custom.js
 const custom = {
   name: 'custom',
   
@@ -375,7 +447,9 @@ const custom = {
 module.exports = custom;
 ```
 
-2. Add to `lib/index.js`:
+### Step 2: Register in Core
+
+Update `lib/index.js`:
 
 ```javascript
 const custom = require('./effects/custom');
@@ -393,7 +467,7 @@ module.exports = {
 };
 ```
 
-3. Use in your code:
+### Step 3: Use It
 
 ```javascript
 const bar = new ProgressBar({
@@ -402,52 +476,77 @@ const bar = new ProgressBar({
 });
 ```
 
-## ANSI Color Reference
+---
+
+## 🎨 ANSI Color Reference
 
 Common ANSI color codes for customization:
 
 ```javascript
 const colors = {
-  // Basic colors
-  red: '\x1b[91m',
-  green: '\x1b[92m',
-  yellow: '\x1b[93m',
-  blue: '\x1b[94m',
-  magenta: '\x1b[95m',
-  cyan: '\x1b[96m',
+  // Basic colors (bright)
+  brightRed: '\x1b[91m',
+  brightGreen: '\x1b[92m',
+  brightYellow: '\x1b[93m',
+  brightBlue: '\x1b[94m',
+  brightMagenta: '\x1b[95m',
+  brightCyan: '\x1b[96m',
   
   // Extended 256-color palette
   darkBlue: '\x1b[38;5;21m',
   neon: '\x1b[38;5;51m',
   orange: '\x1b[38;5;208m',
+  purple: '\x1b[38;5;165m',
   
-  // Reset
-  reset: '\x1b[0m'
+  // Modifiers
+  reset: '\x1b[0m',
+  bold: '\x1b[1m',
+  dim: '\x1b[2m'
 };
 ```
 
-## Browser Compatibility
+---
 
-This module is designed for **Node.js CLI environments only**. It will not work in browser environments.
+## ⚙️ Platform Support
 
-## Performance
+- ✅ Linux
+- ✅ macOS
+- ✅ Windows (CMD, PowerShell, WSL)
+- ✅ Node.js 12+
 
-- Minimal dependencies (zero external dependencies)
-- Optimized rendering for smooth 60 FPS animation
-- Memory efficient for long-running processes
+**Note:** This module is designed for **Node.js CLI environments only**. It will not work in browser environments.
 
-## License
+---
 
-MIT
+## ⚡ Performance
 
-## Contributing
+- **Zero dependencies** - No external packages
+- **Optimized rendering** - Smooth animations
+- **Memory efficient** - Perfect for long-running processes
+- **CPU friendly** - Minimal overhead
 
-Contributions welcome! Feel free to submit issues and pull requests.
+---
 
-## Changelog
+## 📄 License
 
-### v1.0.0
-- Initial release with 4 core effects
-- 7 preset configurations
-- Full customization support
-- Complete documentation
+MIT © 2025
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please check out [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+### Quick Links
+
+- [Report a Bug](https://github.com/quatrecentdouze/tlm-cli-progress-fx/issues)
+- [Request a Feature](https://github.com/quatrecentdouze/tlm-cli-progress-fx/issues)
+- [View Changelog](CHANGELOG.md)
+
+---
+
+## 📞 Support
+
+Need help? Check out the [examples](examples/) folder or open an issue on GitHub.
+
+Happy coding! 🚀
