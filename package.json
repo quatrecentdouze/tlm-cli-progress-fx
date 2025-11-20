@@ -1,6 +1,6 @@
 {
   "name": "tlm-cli-progress-fx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Stylized animated progress bars for Node.js CLI with multiple effects (glitch, gradient, matrix, retro 8-bit)",
   "main": "index.js",
   "types": "index.d.ts",
