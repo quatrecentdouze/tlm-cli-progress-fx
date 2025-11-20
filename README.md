@@ -42,6 +42,10 @@ Perfect for file downloads, build processes, data processing, and any long-runni
 - Labels and percentage display
 - Custom characters and animations
 
+### 🔄 20+ Spinner Styles
+
+Beautiful loading spinners for async operations with multiple visual styles and states (success, error, warning, info).
+
 ---
 
 ## 📦 Installation
@@ -121,6 +125,50 @@ bar.start();
 bar.update(50, 100);
 bar.finish('Done!');
 ```
+
+### Spinner Usage
+
+```javascript
+const { Spinner } = require('tlm-cli-progress-fx');
+
+const spinner = new Spinner({
+  text: 'Processing files...',
+  color: '\x1b[36m'
+});
+
+spinner.start();
+
+setTimeout(() => {
+  spinner.succeed('Files processed!');
+}, 2000);
+```
+
+**Spinner Methods:**
+
+```javascript
+spinner.start();           // Start spinning
+spinner.stop();            // Stop and clear
+spinner.setText('new');    // Update text
+spinner.setColor('\x1b[32m');  // Change color
+
+spinner.succeed('Done!');  // ✓ Success state
+spinner.fail('Error!');    // ✗ Failed state
+spinner.warn('Warning!');  // ⚠ Warning state
+spinner.info('Info!');     // ℹ Info state
+```
+
+**Spinner Styles:**
+
+```javascript
+const { spinnerStyles } = require('tlm-cli-progress-fx');
+
+new Spinner('dots');
+new Spinner('line');
+new Spinner('star');
+new Spinner('growVertical');
+```
+
+20+ styles available: `dots`, `dots2`, `dots3`, `line`, `line2`, `pipe`, `simpleDots`, `star`, `flip`, `hamburger`, `growVertical`, `growHorizontal`, `balloon`, `noise`, `bounce`, `arc`, `circle`, and more!
 
 ---
 
@@ -268,6 +316,81 @@ bar.finish('Operation complete!');
 
 ---
 
+### Spinner API
+
+#### `new Spinner(options)`
+
+Creates a new spinner instance.
+
+**Parameters:**
+- `options` (object | string) - Configuration object or spinner style name
+
+**Options Object:**
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `text` | string | `'Loading'` | Loading text |
+| `prefixText` | string | `''` | Text before spinner |
+| `suffixText` | string | `''` | Text after spinner |
+| `color` | string | `'\x1b[36m'` | ANSI color code |
+| `disableSpinner` | boolean | `false` | Disable animated spinner |
+
+**Spinner Style Names:**
+
+20+ styles: `dots`, `dots2`, `dots3`, `line`, `line2`, `pipe`, `simpleDots`, `simpleDotsScrolling`, `star`, `star2`, `flip`, `hamburger`, `growVertical`, `growHorizontal`, `balloon`, `noise`, `bounce`, `arc`, `circle`, `squareCorners`, `cycleQuarters`
+
+#### Spinner Methods
+
+**`start(text?)`** - Start the spinner animation
+
+```javascript
+spinner.start('Loading...');
+```
+
+**`stop()`** - Stop the spinner
+
+```javascript
+spinner.stop();
+```
+
+**`setText(text)`** - Update the loading text
+
+```javascript
+spinner.setText('Almost done...');
+```
+
+**`setColor(color)`** - Change spinner color
+
+```javascript
+spinner.setColor('\x1b[32m');  // Green
+```
+
+**`succeed(text?)`** - Complete with success (✓)
+
+```javascript
+spinner.succeed('Operation successful');
+```
+
+**`fail(text?)`** - Complete with failure (✗)
+
+```javascript
+spinner.fail('Operation failed');
+```
+
+**`warn(text?)`** - Complete with warning (⚠)
+
+```javascript
+spinner.warn('Operation completed with warnings');
+```
+
+**`info(text?)`** - Complete with info (ℹ)
+
+```javascript
+spinner.info('Operation complete');
+```
+
+---
+
 ## 💡 Examples
 
 ### File Download Simulation
@@ -369,6 +492,40 @@ async function buildProject() {
 buildProject();
 ```
 
+### Using Spinners
+
+```javascript
+const { Spinner } = require('tlm-cli-progress-fx');
+
+async function apiOperations() {
+  let spinner = new Spinner({
+    text: 'Fetching user data...',
+    color: '\x1b[36m'
+  });
+
+  spinner.start();
+
+  try {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    spinner.succeed('User data loaded');
+
+    spinner = new Spinner({
+      text: 'Processing data...',
+      color: '\x1b[33m'
+    });
+
+    spinner.start();
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    spinner.info('Processing complete');
+
+  } catch (error) {
+    spinner.fail('Operation failed');
+  }
+}
+
+apiOperations();
+```
+
 ---
 
 ## 🏗️ Building from Source
@@ -395,6 +552,11 @@ npm run demo
 npm run demo:basic
 npm run demo:custom
 npm run demo:realistic
+
+# Run spinner demos
+npm run demo:spinner
+npm run demo:spinner:all
+npm run demo:spinner:states
 ```
 
 ### Project Structure
@@ -402,20 +564,28 @@ npm run demo:realistic
 ```
 tlm-cli-progress-fx/
 ├── index.js                    # Main entry point
+├── index.d.ts                 # TypeScript definitions
 ├── lib/
 │   ├── index.js               # Core exports
 │   ├── progressBar.js         # Main ProgressBar class
 │   ├── presets.js             # Preset configurations
-│   └── effects/
-│       ├── glitch.js          # Glitch effect
-│       ├── gradient.js        # Gradient effect
-│       ├── matrix.js          # Matrix effect
-│       └── retro8bit.js       # Retro 8-bit effect
+│   ├── effects/
+│   │   ├── glitch.js
+│   │   ├── gradient.js
+│   │   ├── matrix.js
+│   │   └── retro8bit.js
+│   └── spinner/
+│       ├── spinner.js         # Main Spinner class
+│       └── styles.js          # 20+ spinner styles
 ├── examples/
-│   ├── basic.js               # Basic usage
-│   ├── all-effects.js         # All effects demo
-│   ├── custom.js              # Custom configuration
-│   └── realistic.js           # Realistic use cases
+│   ├── basic.js
+│   ├── all-effects.js
+│   ├── custom.js
+│   ├── realistic.js
+│   ├── spinner-basic.js
+│   ├── spinner-all-styles.js
+│   ├── spinner-states.js
+│   └── typescript.example.ts
 ├── package.json               # NPM metadata
 └── README.md                  # Documentation
 ```
