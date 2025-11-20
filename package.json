@@ -1,0 +1,50 @@
+{
+  "name": "tlm-cli-progress-fx",
+  "version": "1.0.0",
+  "description": "Stylized animated progress bars for Node.js CLI with multiple effects (glitch, gradient, matrix, retro 8-bit)",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "keywords": [
+    "progress",
+    "bar",
+    "cli",
+    "animation",
+    "effect",
+    "glitch",
+    "gradient",
+    "matrix",
+    "retro",
+    "8-bit",
+    "terminal",
+    "progress-bar",
+    "cli-progress",
+    "visual-effects",
+    "terminal-graphics"
+  ],
+  "scripts": {
+    "demo": "node examples/all-effects.js",
+    "demo:basic": "node examples/basic.js",
+    "demo:custom": "node examples/custom.js",
+    "demo:realistic": "node examples/realistic.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/tlm-cli-progress-fx"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/tlm-cli-progress-fx/issues"
+  },
+  "homepage": "https://github.com/yourusername/tlm-cli-progress-fx#readme",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "files": [
+    "index.js",
+    "lib/",
+    "README.md",
+    "LICENSE"
+  ]
+}
